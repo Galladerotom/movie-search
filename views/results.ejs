@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<div class="container">
+  <p class="mt-3">Showing Results for "<%=searchMovie%>"</p>
+  <div class="row">
+  <% if(movieData.Response.toLowerCase()=="true"){%>
+
+    <% movieData.Search.forEach((movie)=>{ %>
+      <div class="col-sm-3 my-3">
+        <div class="card border-0">
+          <img src=<%if(movie.Poster!="N/A"){%><%=movie.Poster%><%}else{%>https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg<%} %> class="card-img-top" alt="...">
+          <div class="card-body bg-transparent">
+            <h5 class="card-title"><%= movie.Title%></h5>
+            <p class="card-text">
+              <span class="float-left"><%=movie.Year%></span><span class="border border-success rounded text-success float-right px-1 py-0"><%= movie.Type%></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    <%})} %>
+  </div>
+</div>
+
+
+<%- include("partials/footer") %>
